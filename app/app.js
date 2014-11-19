@@ -11,6 +11,15 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
+Ember.ArrayController.extend({
+  queryParams: ["page", "perPage"],
+  pageBinding: 'content.page',
+  perPageBinding: 'content.perPage',
+  totalPagesBinding: 'content.totalPages',
+  page: 1,
+  perPage: 10
+});
+
 loadInitializers(App, config.modulePrefix);
 
 export default App;
