@@ -1,0 +1,14 @@
+<ul>
+  {{#each}}
+    <li>
+      {{#link-to 'cake' this}}
+        {{name}}
+        {{description}}
+      {{/link-to}}
+    </li>
+  {{else}}
+    <li>No cakes found.</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
