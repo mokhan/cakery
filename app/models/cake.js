@@ -8,5 +8,10 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
 
-  primaryPhoto: Ember.computed.alias('photos.firstObject')
+  primaryPhoto: function(){
+    return this.get('selectedPhoto') || this.get('photos.firstObject');
+  }.property('selectedPhoto', 'photos.firstObject'),
+  choosePhoto: function(photo) {
+    this.set('selectedPhoto', photo);
+  },
 });

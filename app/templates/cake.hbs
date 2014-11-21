@@ -11,13 +11,15 @@
     <p>Updated at: {{formatted-date updatedAt 'MMM Do, YYYY [at] h:mm'}}</p>
   </div>
 </div>
+{{#if 'photos.length === 1'}}
 <div class="row">
   {{#each photos}}
   <div class="col-sm-2 col-md-2">
-    <a href="#" class="thumbnail">
-      <img {{bind-attr src=thumbUrl}} {{bind-attr alt=name}}>
+    <a class="thumbnail">
+      <img {{bind-attr src=thumbUrl}} {{bind-attr alt=name}} {{action 'selectPhoto' this}}>
     </a>
   </div>
   {{/each}}
 </div>
+{{/if}}
 {{outlet}}
