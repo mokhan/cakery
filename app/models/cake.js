@@ -3,8 +3,9 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr('string'),
-  author: DS.belongsTo('user', {async: true}),
-  photos: DS.hasMany('photo', {async: true}),
+  category: DS.belongsTo('category'),
+  author: DS.belongsTo('user'),
+  photos: DS.hasMany('photo'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
 
