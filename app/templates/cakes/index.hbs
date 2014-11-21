@@ -1,16 +1,13 @@
-<ul>
+<div class="row">
   {{#each}}
-    <li>
-      {{#link-to 'cake' this}}
-        {{name}}
-        {{description}}
-      {{/link-to}}
-    </li>
-  {{else}}
-    <li>No cakes found.</li>
+  <div class="col-sm-6 col-md-4">
+    {{#link-to 'cake' this class='thumbnail'}}
+      <img {{bind-attr src=primaryPhoto.url}} {{bind-attr alt=name}}>
+    {{/link-to}}
+  </div>
   {{/each}}
-</ul>
-
-{{page-numbers content=content}}
-
-{{outlet}}
+  <div class="col-sm-12 col-md-12">
+    {{page-numbers content=content}}
+    {{outlet}}
+  </div>
+</div>
