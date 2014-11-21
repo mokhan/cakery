@@ -2,7 +2,7 @@
   {{#each}}
   <div class="col-sm-6 col-md-4">
     {{#link-to 'cake' this class='thumbnail'}}
-      <img {{bind-attr src=primaryPhoto.url}} {{bind-attr alt=name}}>
+      <img {{bind-attr src=primaryPhoto.thumbUrl}} {{bind-attr alt=name}}>
     {{/link-to}}
   </div>
   {{/each}}

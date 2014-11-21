@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6 col-md-6">
-    <img {{bind-attr src=primaryPhoto.url}} {{bind-attr alt=name}} class="thumbnail">
+    <img {{bind-attr src=primaryPhoto.largeUrl}} {{bind-attr alt=name}} class="thumbnail">
   </div>
   <div class="col-sm-6 col-md-6">
     <h1>{{#link-to 'cake' this}}{{name}}{{/link-to}}</h1>
@@ -10,5 +10,14 @@
     <p>Created at: {{formatted-date createdAt 'MMM Do, YYYY [at] h:mm'}}</p>
     <p>Updated at: {{formatted-date updatedAt 'MMM Do, YYYY [at] h:mm'}}</p>
   </div>
+</div>
+<div class="row">
+  {{#each photos}}
+  <div class="col-sm-2 col-md-2">
+    <a href="#" class="thumbnail">
+      <img {{bind-attr src=thumbUrl}} {{bind-attr alt=name}}>
+    </a>
+  </div>
+  {{/each}}
 </div>
 {{outlet}}
