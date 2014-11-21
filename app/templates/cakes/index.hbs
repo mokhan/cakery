@@ -7,7 +7,9 @@
   </div>
   {{/each}}
   <div class="col-sm-12 col-md-12">
-    {{page-numbers content=content}}
-    {{outlet}}
+    <div class="center-block">
+      {{page-numbers content=content totalPages=totalPages}}
+    </div>
   </div>
 </div>
+{{outlet}}

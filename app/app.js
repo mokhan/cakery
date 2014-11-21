@@ -17,7 +17,7 @@ Ember.ArrayController.extend({
   perPageBinding: 'content.perPage',
   totalPagesBinding: 'content.totalPages',
   page: 1,
-  perPage: 10
+  perPage: 12
 });
 
 loadInitializers(App, config.modulePrefix);
