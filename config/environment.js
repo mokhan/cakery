@@ -43,7 +43,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.contentSecurityPolicy = {
+      'connect-src': "'self' https://www.cakeside.com"
+    }
   }
 
   return ENV;
