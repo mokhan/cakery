@@ -5,7 +5,7 @@ import {
 
 moduleForModel('cake', 'Cake', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:category', 'model:user', 'model:photo']
 });
 
 test('it exists', function() {

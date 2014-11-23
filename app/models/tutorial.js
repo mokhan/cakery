@@ -6,4 +6,4 @@ export default DS.Model.extend({
   url: DS.attr('string'),
   imageUrl: DS.attr('string'),
   author: DS.belongsTo('user')
-})
+});
