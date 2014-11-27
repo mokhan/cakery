@@ -13,4 +13,7 @@ var App = Ember.Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
+Ember.onerror = function(error) {
+  Ember.$.ajax('/logs', { type: 'POST', data: { stack: error.stack, event: 'error' } });
+};
 export default App;
