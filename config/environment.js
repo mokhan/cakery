@@ -26,8 +26,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.contentSecurityPolicy = {
-      'connect-src': "'self' http://localhost:3000"
-    }
+      'connect-src': "'self' http://localhost:3000",
+      'img-src': "'self' " + process.env.ASSET_HOST,
+    };
   }
 
   if (environment === 'test') {
@@ -45,7 +46,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.contentSecurityPolicy = {
       'connect-src': "'self' https://www.cakeside.com"
-    }
+    };
   }
 
   return ENV;
