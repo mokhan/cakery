@@ -21,5 +21,11 @@ var app = new EmberApp({
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+// HACK to get ember-cli to work in production
+var index = app.legacyFilesToAppend.indexOf('bower_components/handlebars/handlebars.runtime.js');
+if(index) {
+  app.legacyFilesToAppend[index] = 'bower_components/handlebars/handlebars.js';
+}
+
 app.import('bower_components/moment/moment.js');
 module.exports = app.toTree();
