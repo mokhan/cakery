@@ -45,7 +45,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.contentSecurityPolicy = {
-      'connect-src': "'self' https://www.cakeside.com"
+      'connect-src': "'self' https://www.cakeside.com",
+      'img-src': "'self' " + process.env.ASSET_HOST,
     };
   }
 
