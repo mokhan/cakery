@@ -2,14 +2,19 @@ import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
   page: 1,
-  perPage: 18,
+  per_page: 18,
+  queryParams: ['page', 'per_page'],
   actions: {
     more: function(){
-      this.set('perPage', this.get('perPage') + 18);
-      var that = this;
-      this.store.find('cake', { page: 1, per_page: this.get('perPage') }).then(function(cakes){
-        that.set('content', cakes);
-      });
+      //this.incrementProperty('page');
+      this.incrementProperty('per_page', 18);
+      this.displayPage(this.get('page'), this.get('per_page'));
     },
   },
+  displayPage: function(page, perPage){
+    var that = this;
+    this.store.find('cake', { page: page, per_page: perPage }).then(function(cakes){
+      that.set('content', cakes);
+    });
+  }
 });
