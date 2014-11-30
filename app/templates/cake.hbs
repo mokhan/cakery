@@ -10,18 +10,15 @@
     <p>Published: {{formatted-date createdAt }}</p>
     <p><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> {{category.name}}</p>
     <p>{{description}}</p>
-
   </div>
 </div>
-{{#if 'photos.length === 1'}}
 <div class="row">
   {{#each photos}}
-  <div class="col-sm-2 col-md-2">
+  <div class="col-xs-2">
     <a class="thumbnail">
       <img {{bind-attr src=thumbUrl}} {{bind-attr alt=name}} {{action 'selectPhoto' this}}>
     </a>
   </div>
   {{/each}}
 </div>
-{{/if}}
 {{outlet}}
