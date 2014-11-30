@@ -1,16 +1,18 @@
----
 language: node_js
-
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  strategy: git
+  app:
+    master: cakeside
+  api_key:
+    secure: IzEWVUYVs0P4FQS82e///GvW+Vx0lxftEC4CkChNgZehLQFapH0+mUA6hvyF5YDH47i2LRpdxv3A09ISEp9kOvUC6QTxdL95VWm5N8SwXwIO+QQtbVdZKFUeQQK9Dbrz+3BP6kPtrSPHjMxzn5y2YxPssuddN2OfZ0xjMewCQ1A=
