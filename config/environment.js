@@ -16,17 +16,19 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      apiUrl: 'http://localhost:3000',
     }
   };
 
   if (environment === 'development') {
+    ENV.APP.apiUrl = process.env.API_HOST;
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.contentSecurityPolicy = {
-      'connect-src': "'self' http://localhost:3000",
+      'connect-src': "'self' " + ENV.APP.apiURL,
       'img-src': "'self' " + process.env.ASSET_HOST,
     };
   }
@@ -44,8 +46,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.APP.apiUrl = 'https://www.cakeside.com';
     ENV.contentSecurityPolicy = {
-      'connect-src': "'self' https://www.cakeside.com",
+      'connect-src': "'self' " + ENV.APP.apiURL,
       'img-src': "'self' " + process.env.ASSET_HOST,
     };
   }

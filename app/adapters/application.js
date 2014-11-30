@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import ENV from 'cakery/config/environment';
 
 export default DS.RESTAdapter.extend({
   namespace: 'api/v2',
-  host: 'http://localhost:3000'
+  host: ENV.APP.apiURL,
 });
