@@ -26,7 +26,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.contentSecurityPolicy = {
-      'connect-src': "'self' " + process.env.API_HOST,
+      'connect-src': "'self' " + process.env.API_URL,
       'img-src': "'self' " + process.env.ASSET_HOST,
     };
   }
@@ -45,7 +45,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.contentSecurityPolicy = {
-      'connect-src': "'self' https://www.cakeside.com",
+      'connect-src': "'self' " + process.env.API_URL,
       'img-src': "'self' " + process.env.ASSET_HOST,
     };
   }
