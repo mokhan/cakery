@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import Scrollable from 'cakery/mixins/scrollable';
 
-export default Ember.View.extend({
+export default Ember.View.extend(Scrollable, {
   didInsertElement: function(){
     var view = this;
     Ember.$(window).bind('scroll', function(){
@@ -11,16 +12,4 @@ export default Ember.View.extend({
   willDestroyElement: function(){
     Ember.$(window).unbind('scroll');
   },
-
-  didScroll: function(){
-    if(this.isScrolledToBottom()) {
-      this.get('controller').send('more');
-    }
-  },
-
-  isScrolledToBottom: function() {
-    var distanceToTop = Ember.$(document).height() - Ember.$(window).height();
-    var top = Ember.$(document).scrollTop();
-    return top === distanceToTop;
-  }
 });
